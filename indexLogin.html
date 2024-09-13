@@ -84,18 +84,6 @@
         top: 20px;
       }
 
-      .carousel-item {
-        height: 32rem;
-      }
-
-      .carousel-item > img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        height: 32rem;
-      }
-
       .color-picker {
         display: none;
       }
@@ -110,7 +98,8 @@
         color: inherit;
       }
 
-      .custom-paragraphs p {
+      .custom-paragraphs p,
+      .custom-paragraphs label {
         color: inherit;
       }
 
@@ -121,6 +110,20 @@
 
       .navbar-texts {
         color: inherit;
+      }
+
+      .login-form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f8f9fa;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.5s;
+      }
+
+      .login-form .btn {
+        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -144,20 +147,21 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto mb-2 mb-md-0">
               <li class="nav-item active">
-                <a class="nav-link navbar-texts" aria-current="page" href="#"
-                  >Home</a
+                <a
+                  class="nav-link navbar-texts"
+                  aria-current="page"
+                  href="index.html"
+                  >HOME CAROUSEL</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link navbar-texts" href="#">Link</a>
+                <a class="nav-link navbar-texts" href="indexCartoes.html"
+                  >HOME CARTÕES</a
+                >
               </li>
               <li class="nav-item">
-                <a
-                  class="nav-link disabled navbar-texts"
-                  href="#"
-                  tabindex="-1"
-                  aria-disabled="true"
-                  >Disabled</a
+                <a class="nav-link navbar-texts" href="indexLogin.html"
+                  >HOME LOGIN</a
                 >
               </li>
             </ul>
@@ -167,74 +171,42 @@
     </header>
 
     <main>
-      <!-- Adicionando o carousel -->
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-          <li data-target="#myCarousel" data-slide-to="1"></li>
-          <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <svg
-              class="bd-placeholder-img"
-              width="100%"
-              height="100%"
-              xmlns="http://www.w3.org/2000/svg"
-              preserveAspectRatio="xMidYMid slice"
-              role="img"
-              focusable="false"
-            >
-              <rect width="100%" height="100%" fill="#777" />
-            </svg>
-
-            <div class="container">
-              <div class="carousel-caption text-left custom-titles">
-                <h1>Example headline.</h1>
-                <p class="custom-paragraphs">
-                  Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-                  Donec id elit non mi porta gravida at eget metus. Nullam id
-                  dolor id nibh ultricies vehicula ut id elit.
-                </p>
-                <p>
-                  <a class="btn btn-lg btn-primary" href="#" role="button"
-                    >Sign up today</a
-                  >
-                </p>
-              </div>
+      <!-- Tela de Login -->
+      <div class="container mt-5">
+        <div class="login-form custom-titles" id="loginForm">
+          <h2 class="text-center">Tela de Login</h2>
+          <form>
+            <div class="form-group custom-paragraphs">
+              <label for="username">Usuário</label>
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                placeholder="Digite seu usuário"
+              />
             </div>
-          </div>
-          <!-- Outros itens do carousel -->
+            <div class="form-group custom-paragraphs">
+              <label for="password">Senha</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                placeholder="Digite sua senha"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary btn-block"
+              id="loginButton"
+            >
+              Entrar
+            </button>
+            <div class="text-center">
+              <a href="#" class="btn btn-link">Esqueci a minha senha</a>
+              <a href="#" class="btn btn-link">Cadastre-se</a>
+            </div>
+          </form>
         </div>
-      </div>
-
-      <!-- Seções de marketing e featurettes -->
-      <div class="container marketing custom-titles">
-        <div class="row">
-          <div class="col-lg-4">
-            <h2>Heading 1</h2>
-            <p class="custom-paragraphs">
-              Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id
-              nibh ultricies vehicula ut id elit.
-            </p>
-          </div>
-          <div class="col-lg-4">
-            <h2>Heading 2</h2>
-            <p class="custom-paragraphs">
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
-              eget lacinia odio sem nec elit.
-            </p>
-          </div>
-          <div class="col-lg-4">
-            <h2>Heading 3</h2>
-            <p class="custom-paragraphs">
-              Donec sed odio dui. Cras justo odio, dapibus ac facilisis in,
-              egestas eget quam.
-            </p>
-          </div>
-        </div>
-
-        <!-- Outros conteúdos como featurettes... -->
       </div>
 
       <!-- Barra lateral -->
@@ -247,6 +219,38 @@
             Alterar Plano de Fundo
           </button>
           <input type="color" id="colorPicker" class="color-picker" />
+
+          <!-- Botão para alterar o plano de fundo da tela de login -->
+          <button id="openLoginBackgroundPicker" class="btn btn-secondary mt-3">
+            Alterar Cor Plano de Fundo Login
+          </button>
+          <input type="color" id="loginBackgroundPicker" class="color-picker" />
+
+          <!-- Botão para alterar a cor do botão "Entrar" -->
+          <button
+            id="openLoginButtonColorPicker"
+            class="btn btn-secondary mt-3"
+          >
+            Alterar Cor dos Botões
+          </button>
+          <input
+            type="color"
+            id="loginButtonColorPicker"
+            class="color-picker"
+          />
+
+          <!-- Botão para alterar a cor do texto "Entrar" -->
+          <button
+            id="openLoginButtonTextColorPicker"
+            class="btn btn-secondary mt-3"
+          >
+            Alterar Cor do Texto dos Botões
+          </button>
+          <input
+            type="color"
+            id="loginButtonTextColorPicker"
+            class="color-picker"
+          />
 
           <!-- Botão para alterar a cor dos títulos -->
           <button id="openTitleColorPicker" class="btn btn-secondary mt-3">
@@ -288,6 +292,27 @@
       const openColorPickerButton = document.getElementById("openColorPicker");
       const colorPicker = document.getElementById("colorPicker");
 
+      const openLoginBackgroundPickerButton = document.getElementById(
+        "openLoginBackgroundPicker"
+      );
+      const loginBackgroundPicker = document.getElementById(
+        "loginBackgroundPicker"
+      );
+
+      const openLoginButtonColorPickerButton = document.getElementById(
+        "openLoginButtonColorPicker"
+      );
+      const loginButtonColorPicker = document.getElementById(
+        "loginButtonColorPicker"
+      );
+
+      const openLoginButtonTextColorPickerButton = document.getElementById(
+        "openLoginButtonTextColorPicker"
+      );
+      const loginButtonTextColorPicker = document.getElementById(
+        "loginButtonTextColorPicker"
+      );
+
       const openTitleColorPickerButton = document.getElementById(
         "openTitleColorPicker"
       );
@@ -311,6 +336,9 @@
       const navbarTextColorPicker = document.getElementById(
         "navbarTextColorPicker"
       );
+
+      const loginForm = document.getElementById("loginForm");
+      const loginButton = document.getElementById("loginButton");
 
       let isSidebarOpen = false;
 
@@ -341,15 +369,37 @@
         document.body.style.backgroundColor = event.target.value;
       });
 
+      // Alterar cor do plano de fundo da tela de login
+      openLoginBackgroundPickerButton.addEventListener("click", () => {
+        loginBackgroundPicker.click();
+      });
+      loginBackgroundPicker.addEventListener("input", (event) => {
+        loginForm.style.backgroundColor = event.target.value;
+      });
+
+      // Alterar cor dos botões (botão "Entrar")
+      openLoginButtonColorPickerButton.addEventListener("click", () => {
+        loginButtonColorPicker.click();
+      });
+      loginButtonColorPicker.addEventListener("input", (event) => {
+        loginButton.style.backgroundColor = event.target.value;
+      });
+
+      // Alterar cor do texto dos botões ("Entrar")
+      openLoginButtonTextColorPickerButton.addEventListener("click", () => {
+        loginButtonTextColorPicker.click();
+      });
+      loginButtonTextColorPicker.addEventListener("input", (event) => {
+        loginButton.style.color = event.target.value;
+      });
+
       // Alterar cor dos títulos
       openTitleColorPickerButton.addEventListener("click", () => {
         titleColorPicker.click();
       });
       titleColorPicker.addEventListener("input", (event) => {
         document
-          .querySelectorAll(
-            ".custom-titles h1, .custom-titles h2, .custom-titles h3, .custom-titles h4, .custom-titles h5, .custom-titles h6"
-          )
+          .querySelectorAll(".custom-titles h1, .custom-titles h2")
           .forEach((el) => {
             el.style.color = event.target.value;
           });
