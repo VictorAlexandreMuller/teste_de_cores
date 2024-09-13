@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selecionar Cor</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding-top: 50px;
+      }
+      .color-picker {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Escolha uma cor para o plano de fundo</h1>
+
+    <!-- Botão para abrir a paleta de cores -->
+    <button id="openColorPicker">Escolher Cor</button>
+
+    <!-- Paleta de cores -->
+    <input type="color" id="colorPicker" class="color-picker" />
+
+    <script>
+      // Referências dos elementos
+      const openColorPickerButton = document.getElementById("openColorPicker");
+      const colorPicker = document.getElementById("colorPicker");
+
+      // Quando o botão for clicado, a paleta de cores será aberta
+      openColorPickerButton.addEventListener("click", () => {
+        colorPicker.click(); // Abre a paleta de cores
+      });
+
+      // Quando uma cor for selecionada, aplicamos ao plano de fundo
+      colorPicker.addEventListener("input", (event) => {
+        document.body.style.backgroundColor = event.target.value; // Aplica a cor ao plano de fundo
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barra Lateral com Seleção de Cor</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.5s;
+      }
+
+      /* Estilos da barra lateral */
+      .sidebar {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        right: 0;
+        top: 0;
+        background-color: #333;
+        overflow-x: hidden;
+        transition: 0.3s;
+        padding-top: 60px;
+      }
+
+      /* Conteúdo dentro da barra */
+      .sidebar-content {
+        color: white;
+        padding: 20px;
+      }
+
+      /* Botão para abrir/fechar a barra lateral */
+      #toggleSidebar {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      /* Botão de fechar dentro da barra lateral */
+      .closebtn {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+
+      /* Estilo do botão dentro da barra */
+      #openColorPicker {
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #555;
+        color: white;
+      }
+
+      /* Ocultando a paleta de cores por padrão */
+      .color-picker {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Botão para abrir/fechar a barra lateral -->
+    <button id="toggleSidebar">Abrir Barra</button>
+
+    <!-- Barra lateral -->
+    <div id="mySidebar" class="sidebar">
+      <button class="closebtn" id="closeSidebar">&times;</button>
+      <!-- Botão de fechar dentro da barra -->
+      <div class="sidebar-content">
+        <h2>Escolha uma cor</h2>
+        <!-- Botão para abrir a paleta de cores dentro da barra -->
+        <button id="openColorPicker">Escolher Cor</button>
+        <!-- Paleta de cores -->
+        <input type="color" id="colorPicker" class="color-picker" />
+      </div>
+    </div>
+
+    <script>
+      // Referências dos elementos
+      const toggleSidebarButton = document.getElementById("toggleSidebar");
+      const sidebar = document.getElementById("mySidebar");
+      const closeSidebarButton = document.getElementById("closeSidebar");
+      const openColorPickerButton = document.getElementById("openColorPicker");
+      const colorPicker = document.getElementById("colorPicker");
+
+      // Função para abrir a barra lateral
+      toggleSidebarButton.addEventListener("click", () => {
+        sidebar.style.width = "250px";
+      });
+
+      // Função para fechar a barra lateral ao clicar no botão "X"
+      closeSidebarButton.addEventListener("click", () => {
+        sidebar.style.width = "0";
+      });
+
+      // Quando o botão for clicado, a paleta de cores será aberta
+      openColorPickerButton.addEventListener("click", () => {
+        colorPicker.click(); // Abre a paleta de cores
+      });
+
+      // Quando uma cor for selecionada, aplicamos ao plano de fundo
+      colorPicker.addEventListener("input", (event) => {
+        document.body.style.backgroundColor = event.target.value; // Aplica a cor ao plano de fundo
+      });
+    </script>
+  </body>
+</html>
