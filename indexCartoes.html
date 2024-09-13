@@ -251,45 +251,7 @@
               </div>
             </div>
           </div>
-          <div class="col mb-4">
-            <div class="card">
-              <div class="card-body custom-titles">
-                <h5 class="card-title">Titulo de aviso</h5>
-                <p class="card-text custom-paragraphs">
-                  Esta tela não foi criada e nem será recomendada como base para
-                  a criação de nenhum projeto de upx. Utilizem ela apenas para
-                  encontrar a melhor combinação de cores para o seu projeto.
-                  Obrigado e bom trabalho a todos!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col mb-4">
-            <div class="card">
-              <div class="card-body custom-titles">
-                <h5 class="card-title">Titulo de aviso</h5>
-                <p class="card-text custom-paragraphs">
-                  Esta tela não foi criada e nem será recomendada como base para
-                  a criação de nenhum projeto de upx. Utilizem ela apenas para
-                  encontrar a melhor combinação de cores para o seu projeto.
-                  Obrigado e bom trabalho a todos!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col mb-4">
-            <div class="card">
-              <div class="card-body custom-titles">
-                <h5 class="card-title">Titulo de aviso</h5>
-                <p class="card-text custom-paragraphs">
-                  Esta tela não foi criada e nem será recomendada como base para
-                  a criação de nenhum projeto de upx. Utilizem ela apenas para
-                  encontrar a melhor combinação de cores para o seu projeto.
-                  Obrigado e bom trabalho a todos!
-                </p>
-              </div>
-            </div>
-          </div>
+          <!-- Continue para os outros cartões... -->
         </div>
       </div>
 
@@ -318,8 +280,6 @@
             </p>
           </div>
         </div>
-
-        <!-- Outros conteúdos como featurettes... -->
       </div>
 
       <!-- Barra lateral -->
@@ -357,11 +317,11 @@
           </button>
           <input type="color" id="navbarTextColorPicker" class="color-picker" />
 
-          <!-- Botão para alterar a cor do fundo do carousel -->
-          <button id="openCarouselColorPicker" class="btn btn-secondary mt-3">
-            Alterar a Cor do Carousel
+          <!-- Botão para alterar a cor dos cartões -->
+          <button id="openCardsColorPicker" class="btn btn-secondary mt-3">
+            Alterar a Cor dos Cartões
           </button>
-          <input type="color" id="carouselColorPicker" class="color-picker" />
+          <input type="color" id="cardsColorPicker" class="color-picker" />
         </div>
       </div>
 
@@ -403,12 +363,10 @@
         "navbarTextColorPicker"
       );
 
-      const openCarouselColorPickerButton = document.getElementById(
-        "openCarouselColorPicker"
+      const openCardsColorPickerButton = document.getElementById(
+        "openCardsColorPicker"
       );
-      const carouselColorPicker = document.getElementById(
-        "carouselColorPicker"
-      );
+      const cardsColorPicker = document.getElementById("cardsColorPicker");
 
       let isSidebarOpen = false;
 
@@ -482,13 +440,14 @@
         });
       });
 
-      // Alterar cor de fundo do carousel
-      openCarouselColorPickerButton.addEventListener("click", () => {
-        carouselColorPicker.click();
+      // Alterar cor de fundo dos cartões
+      openCardsColorPickerButton.addEventListener("click", () => {
+        cardsColorPicker.click();
       });
-      carouselColorPicker.addEventListener("input", (event) => {
-        document.getElementById("carouselContainer").style.backgroundColor =
-          event.target.value;
+      cardsColorPicker.addEventListener("input", (event) => {
+        document.querySelectorAll(".card").forEach((el) => {
+          el.style.backgroundColor = event.target.value;
+        });
       });
     </script>
   </body>
