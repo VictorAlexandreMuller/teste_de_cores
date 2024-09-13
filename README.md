@@ -3,6 +3,12 @@
 <br>
 Teste de Cores</h1>
 
+<h2 align="center">Finalidade</h2>
+
+<p>
+Este projeto de interface minimalista tem o intuito de auxiliar os Designers de site a selecionarem a melhor disposição das cores em um desenvolvimento web/mobile.
+</p>
+
 <h2 align="center">Como usar?</h2>
 
 ![](https://imgur.com/Bt3B5J8.png)
